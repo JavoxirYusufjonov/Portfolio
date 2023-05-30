@@ -43,62 +43,73 @@ window.onscroll = () => {
   navbar.classList.remove("active");
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-  var sendEmailBtn = document.getElementById('sendEmailBtn');
-  sendEmailBtn.addEventListener('click', function() {
-      var username = document.getElementById('Name').value;
-      var email = document.getElementById('email').value;
-      var phoneNumber = document.getElementById('phoneNumber').value;
-      var emailSubject = document.getElementById('emailSubject').value;
-      var message = document.getElementById('message').value;
+//Sending emails
 
-      var messageContent = `Sender's Name: ${username}\nSender's Email: ${email}\nPhone Number: ${phoneNumber}\nEmail Subject: ${emailSubject}\n\n${message}`;
+sendEmailBtn.addEventListener('click', function() {
+  var username = document.getElementById('Name').value;
+  var email = document.getElementById('email').value;
+  var phoneNumber = document.getElementById('phoneNumber').value;
+  var emailSubject = document.getElementById('emailSubject').value;
+  var message = document.getElementById('message').value;
 
-      var data = {
-          service_id: 'javoxir',
-          template_id: '937021783',
-          user_id: 'emWDZ_S6BDM2Ho7Nr',
-          template_params: {
-              'message': messageContent,
-              'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
-          }
-      };
+  // Check if any input is empty
+  if (username.trim() === "" || email.trim() === "" || phoneNumber.trim() === "" || emailSubject.trim() === "" || message.trim() === "") {
+    var alertBox = document.createElement("div");
+    alertBox.classList.add("alert-box");
+    alertBox.textContent = "Please fill in all fields.";
 
-      axios.post('https://api.emailjs.com/api/v1.0/email/send', data, {
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      })     
-    .then(function() {
-      var alertBox = document.createElement("div");
-      alertBox.classList.add("alert-box");
-    
-      var messageText = document.createElement("span");
-      messageText.textContent = " Message sent! ";
-    
-      var icon = document.createElement("i");
-      icon.classList.add("bx", "bx-message-square-check");
-    
-      messageText.appendChild(icon);
-      alertBox.appendChild(messageText);
-    
-      var contactSection = document.getElementById("contact");
-      contactSection.appendChild(alertBox);
-    
-      setTimeout(function() {
-        alertBox.remove();
-      }, 2500);
-    }).catch(function(error) {
-      alert('Oops... ' + JSON.stringify(error));
-    });
+    var contactSection = document.getElementById("contact");
+    contactSection.appendChild(alertBox);
+
+    setTimeout(function() {
+      alertBox.remove();
+    }, 3000);
+
+    return; 
+  }
+
+  var messageContent = `Sender's Name: ${username}\nSender's Email: ${email}\nPhone Number: ${phoneNumber}\nEmail Subject: ${emailSubject}\n\n${message}`;
+
+  var data = {
+    service_id: 'javoxir',
+    template_id: '937021783',
+    user_id: 'emWDZ_S6BDM2Ho7Nr',
+    template_params: {
+      'message': messageContent,
+      'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
+    }
+  };
+
+  axios.post('https://api.emailjs.com/api/v1.0/email/send', data, {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+  .then(function() {
+    var alertBox = document.createElement("div");
+    alertBox.classList.add("alert-box");
+
+    var messageText = document.createElement("span");
+    messageText.textContent = " Message sent! ";
+
+    var icon = document.createElement("i");
+    icon.classList.add("bx", "bx-message-square-check");
+
+    messageText.appendChild(icon);
+    alertBox.appendChild(messageText);
+
+    var contactSection = document.getElementById("contact");
+    contactSection.appendChild(alertBox);
+
+    setTimeout(function() {
+      alertBox.remove();
+    }, 2500);
+  }).catch(function(error) {
+    alert('Oops... ' + JSON.stringify(error));
   });
 });
 
-
 const formReset = document.getElementById('form');
 formReset.addEventListener('submit', (e) => {
-   e.preventDefault();
-   formReset.reset();
-  
-});
- 
+e.preventDefault();
+formReset.reset();});
