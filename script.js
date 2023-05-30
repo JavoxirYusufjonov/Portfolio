@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 const formToReset = document.getElementById('form');
-formToReset.addEventListener('click', (e) => {
+formToReset.addEventListener('submit', (e) => {
    e.preventDefault();
    formToReset.reset();
   
