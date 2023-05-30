@@ -70,29 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       })     
  
-    .then(function() {
-      var username = document.getElementById('Name').value;
-      var email = document.getElementById('email').value;
-      var phoneNumber = document.getElementById('phoneNumber').value;
-      var emailSubject = document.getElementById('emailSubject').value;
-      var message = document.getElementById('message').value;
-    
-      // Check if any input is empty
-      if (username.trim() === "" || email.trim() === "" || phoneNumber.trim() === "" || emailSubject.trim() === "" || message.trim() === "") {
-        var alertBox = document.createElement("div");
-        alertBox.classList.add("alert-box");
-        alertBox.innerHTML = "don't joke! &#128545;";
-    
-        var contactSection = document.getElementById("contact");
-        contactSection.appendChild(alertBox);
-    
-        setTimeout(function() {
-          alertBox.remove();
-        }, 3000);
-    
-        return; // Stop further execution
-      }
-    
+    .then(function() 
       var alertBox = document.createElement("div");
       alertBox.classList.add("alert-box");
     
