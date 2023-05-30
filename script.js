@@ -69,28 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
               'Content-Type': 'application/json'
           }
       })     
-    //   .then(function() {
-    //     var alertBox = document.createElement("div");
-    //     alertBox.classList.add("alert-box");
-    
-    //     var messageText = document.createElement("span");
-    //     messageText.textContent = "Your email sent! ";
-    
-    //     var icon = document.createElement("i");
-    //     icon.classList.add("bx", "bx-message-square-check");
-    
-    //     messageText.appendChild(icon);
-    //     alertBox.appendChild(messageText);
-    
-    //     var contactSection = document.getElementById("contact");
-    //     contactSection.appendChild(alertBox);
-    
-    //     setTimeout(function() {
-    //         alertBox.remove();
-    //     }, 2500);
-    // }).catch(function(error) {
-    //     alert('Oops... ' + JSON.stringify(error));
-    // });
+ 
     .then(function() {
       var username = document.getElementById('Name').value;
       var email = document.getElementById('email').value;
