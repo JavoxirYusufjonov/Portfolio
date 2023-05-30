@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
               'Content-Type': 'application/json'
           }
       })     
- 
-    .then(function() 
+    .then(function() {
       var alertBox = document.createElement("div");
       alertBox.classList.add("alert-box");
     
@@ -96,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-const formToReset = document.getElementById('form');
-formToReset.addEventListener('submit', (e) => {
+const formReset = document.getElementById('form');
+formReset.addEventListener('submit', (e) => {
    e.preventDefault();
-   formToReset.reset();
+   formReset.reset();
   
 });
  
