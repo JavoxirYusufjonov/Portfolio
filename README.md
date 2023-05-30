@@ -27,7 +27,7 @@ To clone this repository and set up the portfolio website on your local machine,
 
 
 
-git clone https://github.com/JavoxirYusufjonov/portfolio_site.git
+                              git clone  https://github.com/JavoxirYusufjonov/portfolio_site.git
 
 
 
